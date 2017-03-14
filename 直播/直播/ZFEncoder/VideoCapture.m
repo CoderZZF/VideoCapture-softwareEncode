@@ -39,6 +39,7 @@
     dispatch_queue_t quque = dispatch_get_global_queue(0, 0);
     [output setSampleBufferDelegate:self queue:quque];
     [output setAlwaysDiscardsLateVideoFrames:YES];
+    output.videoSettings = @{(__bridge NSString *)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)};
     [session addOutput:output];
     
     // 视频输出的方向
